@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+
+// bool cmp(pair<int , pair<int , int>>a , pair<int , pair<int , int >>b){
+//     if(a.second.first == b.second.first) return a.second.second<b.second.second;
+//     return a.second.first<b.second.first;
+// }
+
+
+
+int maximumActivities(vector<int> &start, vector<int> &end) {
+    // Write your code here.
+     int n = start.size();
+    vector<pair<int , int>>v;
+    for(int i=0;i<n;i++) v.push_back({ end[i],start[i]});
+
+    sort(v.begin(),v.end());
+    int ans = 0;
+    int val = -1;
+    for(auto i:v){
+       if(i.second>val-1){
+           ans++;
+           val = i.first;
+       }
+    }
+    return ans;
+
+    // vector<int>res;
+    // res.push_back(v[0].second.second);
+    // int val = v[0].second.first;
+
+    // for(int i=0;i<v.size();i++){
+    //     if(val<v[i].first){
+    //         res.push_back(v[i].second.second);
+    //         val = v[i].second.first;
+    //     }
+    // }
+    // return res.size();
+}
