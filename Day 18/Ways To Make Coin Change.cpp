@@ -1,9 +1,10 @@
 #include<bits/stdc++.h>
+using namespace std;
 
 long countWaysToMakeChange(int *denominations, int n, int value)
 {
     //Write your code here
-    vector<vector<long>> dp(n, vector<long>(value + 1, 0));
+    vector<vector<long long >> dp(n, vector<long long >(value + 1, 0));
     for (int i = 0; i <= value; i++)
         dp[0][i] = value % denominations[0] == 0;
 
